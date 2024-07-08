@@ -73,7 +73,6 @@
 		CED4848C2C39D6CE0070DD6E /* Moonshot */ = {
 			isa = PBXGroup;
 			children = (
-				CED4848D2C39D6CE0070DD6E /* MoonshotApp.swift */,
 				CEEB15202C3AAAB0007EAEF6 /* astronauts.json */,
 				CEEB15212C3AAAB0007EAEF6 /* missions.json */,
 				CED4848F2C39D6CE0070DD6E /* ContentView.swift */,
@@ -84,6 +83,7 @@
 				CEEB152E2C3AEFCA007EAEF6 /* AstronautView.swift */,
 				CEEB152A2C3AD30A007EAEF6 /* Color-Theme.swift */,
 				CEEB15242C3AAB8F007EAEF6 /* Astronaut.swift */,
+				CED4848D2C39D6CE0070DD6E /* MoonshotApp.swift */,
 				CEEB15262C3AAC25007EAEF6 /* Bundle-Decodable.swift */,
 				CEEB15282C3AB4D0007EAEF6 /* Mission.swift */,
 				CED484912C39D6D00070DD6E /* Assets.xcassets */,
