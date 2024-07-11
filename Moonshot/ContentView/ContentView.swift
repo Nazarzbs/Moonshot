@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var pathStore = PathStore()
     
     @State var toggleMissionView = false
+    let columns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
     
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let mission: [Mission] = Bundle.main.decode("missions.json")
    
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $pathStore.path) {
             ScrollView {
-                if toggleMissionView {
+                if !toggleMissionView {
                     GridLayout(astronauts: astronauts, mission: mission)
                 } else {
                     ListLayout(astronauts: astronauts, mission: mission)

@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct ListLayout: View {
+    
     let astronauts: [String: Astronaut]
     let mission: [Mission]
-    
     
     var body: some View {
         
         ForEach(mission) { mission in
-            NavigationLink {
-                MissionView(mission: mission, astronauts: astronauts)
-                
-            } label: {
+            NavigationLink(value: mission) {
+              
                 LazyVStack {
                     Image(mission.image)
                         .resizable()
@@ -47,6 +45,9 @@ struct ListLayout: View {
             }
     }
     .padding([.horizontal, .bottom])
+    .navigationDestination(for: Mission.self) { mission in
+            MissionView(mission: mission, astronauts: astronauts)
+        }
     }
     
     init(astronauts: [String: Astronaut], mission: [Mission]) {

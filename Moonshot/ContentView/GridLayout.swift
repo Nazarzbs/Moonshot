@@ -17,13 +17,11 @@ struct GridLayout: View {
     ]
     
     var body: some View {
+        
         LazyVGrid(columns: columns) {
             ForEach(mission) { mission in
-                NavigationLink {
-                    MissionView(mission: mission, astronauts: astronauts)
-                    
-                } label: {
-                    VStack {
+                NavigationLink(value: mission) {
+                    LazyVStack {
                         Image(mission.image)
                             .resizable()
                             .scaledToFit()
@@ -40,17 +38,20 @@ struct GridLayout: View {
                         }
                         .padding(.vertical)
                         .frame(maxWidth: .infinity)
-                        .background(.lightBackground)
+                        .background(Color.lightBackground)
                     }
-                    .clipShape(.rect(cornerRadius: 10))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                     .overlay {
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(.lightBackground)
+                            .stroke(Color.lightBackground)
                     }
                 }
             }
         }
         .padding([.horizontal, .bottom])
+        .navigationDestination(for: Mission.self) { mission in
+            MissionView(mission: mission, astronauts: astronauts)
+        }
     }
     
     init(astronauts: [String: Astronaut], mission: [Mission]) {
